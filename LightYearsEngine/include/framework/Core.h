@@ -1,7 +1,9 @@
 ﻿#pragma once
 
 #include <map>
+#include <memory>
 #include <stdio.h>
+#include <unordered_map>
 
 namespace ly
 {
