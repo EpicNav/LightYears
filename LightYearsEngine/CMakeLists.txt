@@ -14,6 +14,10 @@ set(GAME_CORE_CPP               ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.c
 set(GAME_WORLD_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/World.h)
 set(GAME_WORLD_cpp              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp)
 
+# Actor
+set(GAME_ACTOR_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Actor.h)
+set(GAME_ACTOR_cpp              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.cpp)
+
 add_library(${TARGET_ENGINE_NAME} STATIC
 # EntryPoint
     ${ENTRY_POINT_HEADER}
@@ -30,6 +34,10 @@ add_library(${TARGET_ENGINE_NAME} STATIC
 # World
     ${GAME_WORLD_HEADER}
     ${GAME_WORLD_cpp}
+    
+# Actor
+    ${GAME_ACTOR_HEADER}
+    ${GAME_ACTOR_cpp}
 )
 
 target_include_directories(
