@@ -12,11 +12,15 @@ set(GAME_CORE_CPP               ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.c
 
 # World
 set(GAME_WORLD_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/World.h)
-set(GAME_WORLD_cpp              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp)
+set(GAME_WORLD_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp)
 
 # Actor
 set(GAME_ACTOR_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Actor.h)
-set(GAME_ACTOR_cpp              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.cpp)
+set(GAME_ACTOR_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.cpp)
+
+# Object
+set(GAME_OBJECT_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Object.h)
+set(GAME_OBJECT_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp)
 
 add_library(${TARGET_ENGINE_NAME} STATIC
 # EntryPoint
@@ -33,11 +37,15 @@ add_library(${TARGET_ENGINE_NAME} STATIC
     
 # World
     ${GAME_WORLD_HEADER}
-    ${GAME_WORLD_cpp}
+    ${GAME_WORLD_CPP}
     
 # Actor
     ${GAME_ACTOR_HEADER}
-    ${GAME_ACTOR_cpp}
+    ${GAME_ACTOR_CPP}
+    
+# Object
+    ${GAME_OBJECT_HEADER}
+    ${GAME_OBJECT_CPP}
 )
 
 target_include_directories(

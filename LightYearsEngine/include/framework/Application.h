@@ -11,7 +11,7 @@ namespace ly
     class Application
     {
     public:
-        Application();
+        Application(sf::Vector2u window_size = sf::Vector2u(768, 1080) /** Default size */, std::string window_title);
 
         void Run();
         void RenderInternal();

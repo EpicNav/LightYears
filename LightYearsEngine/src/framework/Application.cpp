@@ -6,8 +6,8 @@
 
 namespace ly
 {
-    Application::Application()
-        : m_window_(sf::VideoMode(sf::Vector2u(768, 1080)), "Light Years")
+    Application::Application(sf::Vector2u window_size, std::string window_title)
+        : m_window_(sf::VideoMode(window_size), window_title)
         , m_target_frame_rate_(120.f)
         , m_tick_clock_()
         , m_current_world_(nullptr)

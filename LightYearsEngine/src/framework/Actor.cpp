@@ -11,6 +11,7 @@ namespace ly
 
     Actor::~Actor()
     {
+        LOG("Actor Destroyed!");
     }
 
     void Actor::BeginPlayInternal()
@@ -34,6 +35,6 @@ namespace ly
 
     void Actor::Tick(float DeltaTime)
     {
-        LOG("Actor is Ticking");
+        // LOG("Actor is Ticking");
     }
 }

@@ -36,9 +36,16 @@ namespace ly
         
         m_pending_actors_.clear();
 
-        for (TSharedPtr<Actor> actor : m_actors_)
+        for (auto itr = m_actors_.begin(); itr != m_actors_.end();)
         {
-            actor->TickInternal(deltaTime);
+            if (itr->get()->IsPendingKill())
+            {
+                itr = m_actors_.erase(itr);
+            } else
+            {
+                itr->get()->TickInternal(deltaTime);
+                ++itr;
+            }
         }
 
         Tick(deltaTime);
@@ -51,6 +58,5 @@ namespace ly
 
     void World::Tick(float deltaTime)
     {
-        LOG("FPS: %f", 1.f / deltaTime);
     }
 }

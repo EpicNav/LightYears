@@ -1,11 +1,13 @@
 ﻿#pragma once
-#include "Core.h"
+
+#include "framework/Object.h"
+#include "framework/Core.h"
 
 namespace ly
 {
     class World;
     
-    class Actor
+    class Actor : public Object
     {
     public:
         Actor(World* owning_world);
