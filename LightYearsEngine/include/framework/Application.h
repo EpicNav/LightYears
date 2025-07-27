@@ -11,7 +11,7 @@ namespace ly
     class Application
     {
     public:
-        Application(sf::Vector2u window_size = sf::Vector2u(768, 1080) /** Default size */, std::string window_title);
+        Application(sf::Vector2u window_size /** Default size */, std::string window_title = "");
 
         void Run();
         void RenderInternal();
@@ -30,6 +30,9 @@ namespace ly
         sf::Clock m_tick_clock_;
 
         TSharedPtr<World> m_current_world_;
+
+        sf::Clock m_clean_cycle_clock_;
+        float m_clean_cycle_interval_;
     };
 
     template<typename WorldType>

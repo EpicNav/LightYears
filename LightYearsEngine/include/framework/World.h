@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "framework/Core.h"
+#include "SFML/Graphics/RenderWindow.hpp"
 
 namespace ly
 {
@@ -14,9 +15,10 @@ namespace ly
         
         void BeginPlayInternal();
         void TickInternal(float deltaTime);
+        void Render(sf::RenderWindow &InWindow);
 
         template<typename T>
-        TWeakPtr<T> SpawnActor();
+		TWeakPtr<T> SpawnActor();
 
     protected:
         virtual void BeginPlay();
@@ -30,10 +32,10 @@ namespace ly
         TArray<TSharedPtr<Actor>> m_pending_actors_;
     };
 
-    template<typename T>
-    TWeakPtr<T> World::SpawnActor()
+    template<typename ActorType>
+    TWeakPtr<ActorType> World::SpawnActor()
     {
-        TSharedPtr<T> newActor(new T(this));
+        TSharedPtr<ActorType> newActor{ new ActorType(this) };
         m_pending_actors_.push_back(newActor);
         return newActor;
     }

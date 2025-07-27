@@ -22,6 +22,14 @@ set(GAME_ACTOR_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.
 set(GAME_OBJECT_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/Object.h)
 set(GAME_OBJECT_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp)
 
+# Asset Manager
+set(GAME_ASSET_MANAGER_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/framework/AssetManager.h)
+set(GAME_ASSET_MANAGER_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/AssetManager.cpp)
+
+# Math
+set(GAME_MATH_HEADER           ${CMAKE_CURRENT_SOURCE_DIR}/include/helper/Math.h)
+set(GAME_MATH_CPP              ${CMAKE_CURRENT_SOURCE_DIR}/src/helper/Math.cpp)
+
 add_library(${TARGET_ENGINE_NAME} STATIC
 # EntryPoint
     ${ENTRY_POINT_HEADER}
@@ -46,6 +54,14 @@ add_library(${TARGET_ENGINE_NAME} STATIC
 # Object
     ${GAME_OBJECT_HEADER}
     ${GAME_OBJECT_CPP}
+
+# Asset Manager
+    ${GAME_ASSET_MANAGER_HEADER}
+    ${GAME_ASSET_MANAGER_CPP}
+
+# Math
+    ${GAME_MATH_HEADER}
+    ${GAME_MATH_CPP}
 )
 
 target_include_directories(

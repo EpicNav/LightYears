@@ -4,7 +4,7 @@
 
 namespace ly
 {
-    class Actor;
+    class PlayerSpaceship;
     class GameApplication : public Application
     {
     public:
@@ -13,6 +13,6 @@ namespace ly
 
     private:
         float counter;
-        TWeakPtr<Actor> ActorToDestroyRef;
+        TWeakPtr<PlayerSpaceship> testPlayerSpaceship;
     };
 }

@@ -1,8 +1,9 @@
 ﻿#pragma once
+#include <memory>
 
 namespace ly
 {
-    class Object
+    class Object : public std::enable_shared_from_this<Object>
     {
     public:
         Object();

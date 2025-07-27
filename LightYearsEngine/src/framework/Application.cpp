@@ -1,7 +1,5 @@
-﻿#include <stdio.h>
-#include "framework/Application.h"
-
-#include "framework/Core.h"
+﻿#include "framework/Application.h"
+#include "framework/AssetManager.h"
 #include "framework/World.h"
 
 namespace ly
@@ -11,6 +9,8 @@ namespace ly
         , m_target_frame_rate_(120.f)
         , m_tick_clock_()
         , m_current_world_(nullptr)
+        , m_clean_cycle_clock_()
+        , m_clean_cycle_interval_(2.1f)
     {
     }
 
@@ -51,6 +51,12 @@ namespace ly
         {
             m_current_world_->TickInternal(DeltaTime);
         }
+
+        if (m_clean_cycle_clock_.getElapsedTime().asSeconds() >= m_clean_cycle_interval_)
+        {
+            m_clean_cycle_clock_.restart();
+            AssetManager::Get().CleanCycle();
+        }
     }
 
     void Application::Tick(float DeltaTime)
@@ -68,10 +74,9 @@ namespace ly
 
     void Application::Render()
     {
-        sf::RectangleShape rect(sf::Vector2f(100, 100));
-        rect.setPosition(sf::Vector2f(m_window_.getSize().x / 2, m_window_.getSize().y / 2));
-        rect.setOrigin(sf::Vector2f(50, 50));
-        rect.setFillColor(sf::Color::Magenta);
-        m_window_.draw(rect);
+        if (m_current_world_)
+        {
+            m_current_world_->Render(m_window_);
+        }
     }
 }

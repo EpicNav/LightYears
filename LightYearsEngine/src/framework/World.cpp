@@ -51,6 +51,14 @@ namespace ly
         Tick(deltaTime);
     }
 
+    void World::Render(sf::RenderWindow &InWindow)
+    {
+        for (auto actor : m_actors_)
+        {
+            actor->Render(InWindow);
+        }
+    }
+
     void World::BeginPlay()
     {
         LOG("Begin Play");
